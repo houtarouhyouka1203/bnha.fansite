@@ -1,0 +1,28 @@
+/*content inside the website*/
+.websiteHomepage {
+	margin-top: 90px; width: 100%; 
+}
+.animePosterImage { 
+	width: 100%; height: calc(100vh - 90px - 35px); max-height: 733px;
+	background: var(--animePoster); background-position: top;background-repeat: no-repeat;background-size: cover;
+}
+.websiteCreditText {
+	width: 100%; height: 35px;
+	background: #A29900;
+	align-items: center; display: flex; vertical-align: middle; 
+}
+.websiteCreditText .textInsideOnly {margin: 0 35px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+@media all and (max-width: 1366px) {
+	.websiteHomepage{margin-top: 55px} .animePosterImage {height: calc(100vh - 55px - 35px); max-height: 733px;}
+}
+
+@media all and (max-height: 407px) {
+	.animePosterImage{height: 200px;}
+}
+
+/*for mobile device only*/
+.-mobileDevice-animePosterImage {height: calc((100vh - 55px) * 0.55); background-position: center;} 
+@media all and (max-width: 757px) {
+	.-mobileDevice-animePosterImage{height: 200px;}
+}
