@@ -1,0 +1,16 @@
+{
+  "name": "myhero.academia | webproject",
+  "version": "0.3.0",
+  "description": "web project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["my hero academia", "boku no hero academia"],
+  "author": "houtarouhyouka1203",
+  "license": "ISC",
+  "contents" : ["home", "about us", "news", "updates", "manga", "books and goods", "music", "movie"]
+}

@@ -1,0 +1,11 @@
+
+# Disable directory browsing 
+Options -Indexes
+
+RewriteEngine on
+RewriteRule ^([a-z]+)/homepage$ /homepage/index.php?lang=$0
+RewriteRule ^([a-z]+)/homepage/$ /homepage/index.php?lang=$0
+
+#format css
+RewriteRule ^th/([a-z]+)/(.+\.css)$ /$1/$2
+
