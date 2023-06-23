@@ -1,0 +1,252 @@
+.websiteNavigationBar { width: 100%; height: 55px; background: transparent; position: fixed; top: 0; z-index: 999}
+
+/*aligning to center*/
+.websiteNavigationBar-NormalDevice-MainSide, .websiteNavigationBar-NormalDevice-Icon, .websiteNavigationBar-NormalDevice-MainSide-LogoReal{display: flex; align-items: center; vertical-align: middle;}
+
+/*format yellow color*/
+.websiteNavigationBar-NormalDevice-LeftSide, .websiteNavigationBar-NormalDevice-MainSide-LogoContainer, .websiteNavigationBar-NormalDevice-Controls, .websiteNavigationBar-NormalDevice, .websiteNavigationBar-NormalDevice-RightSide, .websiteNavigationBar-NormalDevice-MainSide {
+	background: #FFF100; width: 30px; height: 100%; box-shadow: 0px 5px 0px 0px black;
+}
+
+/*no animation allowed*/
+.websiteNavigationBar-NormalDevice, .websiteNavigationBar-NormalDevice * {transition: 0s!important}
+
+/*setup left and right side to use js code*/
+.websiteNavigationBar-NormalDevice {width: 100%; height: 100%; display: flex;position: absolute; top: 0}
+.websiteNavigationBar-NormalDevice-LeftSide, .websiteNavigationBar-NormalDevice-RightSide {position: absolute;}
+.websiteNavigationBar-NormalDevice-LeftSide {left: 0;} .websiteNavigationBar-NormalDevice-RightSide {right: 0;}
+
+/*basic layout*/
+.websiteNavigationBar-NormalDevice-MainSide {width: 100%; max-width: 1366px; height: 100%; margin: 0 auto; position: relative;}
+.websiteNavigationBar-NormalDevice-Icon {width: 180px;height: 100%;}
+.websiteNavigationBar-NormalDevice-Controls {width: auto; height: 100%; position: absolute; right: 0;}
+
+/* left side*/
+.websiteNavigationBar-NormalDevice-MainSide-LogoContainer {width: 160px; height: 100%;background: linear-gradient(113deg, #fff100 97.5%, rgba(0,0,0,1) 97.5% );}
+.websiteNavigationBar-NormalDevice-MainSide-LogoTriContainer {
+	width: 20px; height: 100%; clip-path: polygon(0% 0%, 74% 0, 100% 0, 3% 100%, 0 100%);
+	filter: drop-shadow(0px 5px 0px black); background: linear-gradient(to bottom right, #fff100 40%, rgba(0,0,0,1) 0%, transparent 1000%);
+}
+
+/*real myhero logo*/
+.websiteNavigationBar-NormalDevice-MainSide-LogoReal {width: 180px; height: 100%;position: absolute; left: 0;}
+.websiteNavigationBar-NormalDevice-MainSide-LogoReal a {height: 52.5px; margin-left: 35px; cursor: pointer; width: 93.324px; background-image: var(--mha); background-size: cover;background-repeat: no-repeat;}
+.websiteNavigationBar-NormalDevice-MainSide-LogoReal a:hover {filter: opacity(0.5);}
+.websiteNavigationBar-NormalDevice-Controls {
+	display: flex; align-items: center; vertical-align: middle;
+	position: absolute; right: 90px;
+}
+
+/*right side*/
+.websiteNavigationBar-Inline-Controls { width: auto;height: 100%; display: flex;cursor: pointer;}
+.websiteNavigationBar-Inline-Controls:hover{background: #E30000;}
+.websiteNavigationBar-NormalDevice-Controls-Inner {height: 100%; padding: 0 15px;}
+.menuBar-NavTextFormat {font-family: futuraBQ; font-size: 24px; display: flex; align-items: center; vertical-align: middle;color: black;cursor: pointer;}
+.menuBar-NavTextFormat:is(.menuBar-NavTextFormat-Hover) {color: white;}
+
+/*logo in the right side when using responsive option*/
+.websiteNavigationBar-ResponsiveLogo {
+	height: 52.5px; display: none; cursor: pointer; width: 93.324px; background-image: var(--mha); background-size: cover;background-repeat: no-repeat; margin: 0 auto;
+}
+
+/*right side with some custom object when hovering. we will use jquery to do the job*/
+.websiteNavigationBar-Search:active, .websiteNavigationBar-Home:active {background: #E30000;}
+.websiteNavigationBar-Search, .websiteNavigationBar-Home {background-color: black; height: 100%; width: 55px;cursor: pointer;}
+.websiteNavigationBar-Search, .websiteNavigationBar-Home, .menuBar-NavTextFormat-Icon {display: flex; align-items: center; vertical-align: middle;}
+
+/*for special image buttons*/
+.websiteNavigationBar-Search {width:55px;position: absolute; right: 35px}
+.websiteNavigationBar-Home {display: none; width: 55px; margin-left: 35px}
+.websiteNavigationBar-Discord, .websiteNavigationBar-Twitter {width: 55px; height: 55px; display: flex; vertical-align: middle;align-items: center;}
+.menuBar-NavTextFormat-Icon, .menuBar-NavTextFormat-Icon * { margin: 0 auto }
+.menuBar-NavTextFormat-Search-Icon {width: 24px; height: 24px;background-image: var(--search-W);background-size: cover;background-repeat: no-repeat; }
+.menuBar-NavTextFormat-Home-Icon {width: 24px; height: 24px;background-image: var(--li-W);background-size: cover;background-repeat: no-repeat;}
+.menuBar-NavTextFormat-Discord-Icon {width: 24px; height: 24px;background-image: var(--discord-B);background-size: cover;background-repeat: no-repeat;filter: opacity(0.35);}
+.menuBar-NavTextFormat-Twitter-Icon {width: 24px; height: 24px;background-image: var(--twitter-B);background-size: cover;background-repeat: no-repeat;filter: opacity(0.35);}
+.menuBar-NavTextFormat-Discord-Icon:hover {filter: opacity(1);}
+.menuBar-NavTextFormat-Twitter-Icon:hover {filter: opacity(1);}
+
+
+
+/*search box*/
+.websiteNavigationBar-NormalDevice-Controls-SearchBox {	width: 0; background: black; position: absolute;right: 0;transition: var(--transitionTime)!important;overflow: hidden;}
+.websiteNavigationBar-SearchInner {width: 100%; height: 100%; outline: none;border:none; padding: 0; padding: 0 15px}
+.websiteNavigationBar-NormalDevice-Controls-SearchBox:is(.searchActivated) {width: 100%;}
+
+/*search button event*/ .menuBar-NavTextFormat-Search-Icon:is(.searchClicked) {background-image: var(--close-W)}
+
+/*search result suggestion design*/
+.searchSuggestions {height: auto; background: white; border: 2.5px solid; display: none;}
+.searchSuggestions-Opened {display: block;}
+.searchSuggestions {cursor: pointer;}
+.searchSuggestions div:not(.searchSuggestions-viewMore *) {
+	width: calc(100% - 30px); height: 21.333px; 
+	padding: 15px; overflow: hidden!important;
+	font-family: var(--bold-font);
+	white-space: nowrap; text-overflow: ellipsis; 
+	transition: 0s!important;
+}
+.searchSuggestions div:not(.searchSuggestions-viewMore, .searchSuggestions-viewMore *):hover {background: #01AA8D; color: white;}
+.searchSuggestions-viewMore {background: black;}
+.searchSuggestions-viewMore, .searchSuggestions-viewMore > div > div {display: flex; align-items: center; vertical-align: middle; }
+.searchSuggestions-viewMore > div {margin: 0 auto; display: flex;}
+.searchSuggestions-viewMore-Caption {font-family: commando; color: white}
+.searchSuggestions-viewMore-Icon { width: 15px; height: 15px; margin-left:5px; background-image: var(--icon-right-W); background-repeat: no-repeat; background-size: cover; background-position: center;}
+.searchSuggestions-viewMore-Animation {animation: moveIcon 0.8s; animation-iteration-count: infinite;}
+
+/*responsive for navigation bar*/
+@media all and (max-width: 767px) {
+	.websiteNavigationBar-ResponsiveLogo {display: flex;transition: var(--transitionTime)!important}
+	.websiteNavigationBar-ResponsiveLogo:hover {opacity: 0.5}
+	.websiteNavigationBar-NormalDevice-Icon {display: none;}
+	.websiteNavigationBar-Home {display: flex;}
+	.websiteNavigationBar-NormalDevice-Controls {width: calc(100% - 55px * 2 - 35px * 2 )}
+	.websiteNavigationBar-Inline-Controls:not(.websiteNavigationBar-NormalDevice-Controls-SearchBox) {display: none}
+}
+
+@-webkit-keyframes moveIcon {
+	from {margin-left: 5px;animation-timing-function: ease-in;}
+	50% {margin-left: 12.5px;animation-timing-function: ease-out;}
+	to {margin-left: 5px;animation-timing-function: ease-in;}
+}
+
+/* ************ */
+
+/*for menu div only*/ 
+	/*general configuration*/
+	.menuOption {width: 100%; height: calc(100vh - 60px); display: flex; position: absolute; transition: top var(--transitionTime)}
+	/*normal devices*/
+	.menuOption {top: calc(-1 * 100vh);} .menuOption-Opened {top: 60px;}
+	/*alternative design*/
+	@media all and (max-width: 767px) {
+		.menuOption {top: 60px; left: calc(-1 * 100vw); transition: left var(--transitionTime)} .menuOption-Opened {left: 0;}
+	}
+	
+
+/*menu div > background with two layers*/
+	/*general configuration*/
+	.menuOption-bg, .menuOption-pattern {width: 100%; height: 100%; position: absolute; bottom: 0; transition: 0s}
+	.menuOption-bg {background-size: cover; background-position: top; background-repeat: no-repeat;}
+	/*normal devices*/
+	.menuOption-bg {background-image: url(https://heroaca.com/wp/wp-content/themes/heroaca_v1/assets/img/sub/season6_bg.jpg);}
+	.menuOption-pattern {background-image: radial-gradient(black 1px, transparent 1px); background-size: 4.5px 4.5px; background-position: 0 0, 3px 3px;}
+	/*alternative design*/
+	@media all and (max-width: 767px) {
+		.menuOption-bg {background-image: url(https://heroaca.com/wp/wp-content/themes/heroaca_v1/assets/img/common/navbg_1.jpg);}
+		.menuOption-pattern {background-image: none;}
+	}
+	
+
+/*menu div > mha img text*/
+	/*general configuration*/
+	.runningText {
+		position: absolute; margin: 10px; width: 100px; height: 100%; 
+		background: var(--mha-text); background-position: 0 0; background-repeat: repeat-y;
+		animation: mhaText-Vertical 6s linear infinite; opacity: 0;
+	}
+	@-webkit-keyframes mhaText-Vertical {
+		from {background-position: 0 736px;}
+		to {background-position: 0 0;}
+	}
+	/*alternative design*/
+	@media all and (max-width: 767px) {.runningText {opacity: 1}}
+
+/*menu div > real content inside*/
+	.menuOption-WorkingPlace {
+		width: calc(100% - 70px); max-width: 1296px; height: calc(100% - 35px); max-height: 700px;
+		position: relative; top: 0; background: transparent;
+		margin: 0 auto; display: flex;
+	}
+	/*general configuration*/ 
+	.menuOption-closeButton, .menuOption-boxContent {
+		display: flex; align-items: center; vertical-align: middle;
+	}
+	/* close button */
+	.menuOption-closeButton {width: 100%; height: 75px; position: absolute;top: 0;}
+	.menuOption-closeButton div {width: 118px; height: 36px; background: url(https://heroaca.com/wp/wp-content/themes/heroaca_v1/assets/img/sub/page_prev.png); background-size: contain;background-repeat: no-repeat; position: absolute; right: 0; cursor: pointer;}
+	.menuOption-closeButton div:hover {animation: menuOption-CloseButton 1s infinite;}
+
+	@-webkit-keyframes menuOption-CloseButton {
+		from{width: 118px;  animation-timing-function: ease-in;}
+		50% {width: 135px; animation-timing-function: ease-out;}
+		to {width: 118px; animation-timing-function: ease-in;}
+	}
+	/* box content*/
+	.menuOption-boxContent { width: calc(100% - 12.5px); height: calc(100% - 90px); background: transparent; position: absolute; top: 75px; background: white; border: 3.5px solid black; box-shadow: 5.5px 5.5px 0 0px black; transition: 0s!important }
+	@media all and (max-width: 767px) {
+		.menuOption-boxContent {border: 0; background: none; box-shadow: 0 0 0 0; width: 100%;}
+	} 
+	@media all and (max-width: 500px) {
+		.menuOption-boxContent {height: calc(100% - 75px);}
+	} 
+		/* general configuration for list nav and footer*/
+		.boxContent-listNav, .boxContent-footer {width: 100%; display: flex; align-items: center; vertical-align: middle; position: absolute}
+		/* box contet - list nav*/
+		.boxContent-listNav {height: calc(100% - 60px); top: 0}
+		@media all and (max-width: 500px) {.boxContent-listNav {height: calc(100% - 85px);}}
+		.boxContent-listNav-Container {
+			width: calc(100% - 50px); height: calc(100% - 25px); position: absolute; left: 25px; right: 25px; bottom: 0;  overflow-y: auto; overflow-x: hidden;
+			display: grid; grid-template-columns: repeat(auto-fit,minmax(400px, 1fr));
+			align-items: center; justify-content: center;
+		}
+		@media all and (max-width: 767px) {.boxContent-listNav-Container {width: 100%; height: 100%; left: 0; right: 0}}
+		@media all and (max-width: 500px) {.boxContent-listNav-Container {grid-template-columns: repeat(auto-fit, 100%);} }
+			/*list nav > each items*/
+			.boxContent-listNav-Container > div {
+				width: calc(100%); height: calc(100%); min-height: 100px; max-height: 150px;
+				display: block; position: relative;
+			}
+			.boxContent-listNav-Container > div > a {
+				width: calc(100% - 30px); height: calc(100% - 30px); display: block; position: absolute; top: 0;
+				background: #01AA8D; border: 5px solid; box-shadow: 5px 5px 0 0; 
+			}
+				/*list nav > each items > animation*/
+				.menuOption-Animation_T, .menuOption-Animation_B {position: absolute; width: 0%; height: 50%; background: #E30000; display: flex; transition: var(--transitionTime)!important}
+				.menuOption-Animation_T {left: 0; top: 0;} .menuOption-Animation_B {right: 0; bottom: 0;}
+					/*list nav > each items > animation >> activate*/
+					.menuOption-Animation_enabled {width: 100%;}
+				/*list nav > each items > contents*/
+				.menuOption-Content {width: 100%; height: 100%; position: absolute;top: 0; display: flex;}
+					/*list nav > each items > contents > char icon*/
+					.menuOption-Content-Icon {height: 100%; aspect-ratio: 1.25/1; background: url(/assets/images/others/icon_container.png); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; vertical-align: middle; align-items: center;}
+					.menuOption-Content-Icon > div {height: 100%; width: 100%; background: url(/assets/images/char_yellow/deku.png); background-size: cover; background-position: center; background-repeat: no-repeat; }
+					@media all and (max-width: 500px) {.menuOption-Content-Icon {display: none} }
+					/*list nav > each items > contents > text*/
+					.menuOption-Content-Text { height: 100%; width: auto; max-width: 250px; min-width: 150px; display: flex; align-items: center; vertical-align: middle; }
+					.menuOption-Content-Text > div { width: calc(100% - 20px); display: block; margin: 0 10px}
+					.menuOption-Content-Text > div > div {width: 100%; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+					.menuOption-Content-Text_en { font-family: commando; font-size: 32px; margin: 10px 0 0 2.5px}
+					.menuOption-Content-Text_lang { font-family: var(--bold-font); font-size: 18px;}
+			/*list nav - scroll*/
+			.boxContent-listNav-Container::-webkit-scrollbar-track{background-color: #FFFFFF;}
+			.boxContent-listNav-Container::-webkit-scrollbar{width: 10px;background-color: #FFFFFF;}
+			.boxContent-listNav-Container::-webkit-scrollbar-thumb{background-color: #000000;}
+		/* box contet - footer*/
+		.boxContent-footer {height: 60px; bottom: 0}
+
+			/* box content - footer > text */
+			.boxContent-footer-Text {max-width: 500px; position: absolute; right: 25px}
+
+			.boxContent-footer-Text div { position: relative; right: 0; text-align: right;font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+			/* box content - footer > sociallink */
+			.boxContent-footer-SocialLink {max-width: 200px; overflow: hidden; height: 35px; position: absolute; left: 15px; display: flex; vertical-align: middle; align-items: center;}
+			.boxContent-footer-SocialLink a {width: 20px; height: 20px; margin: 0 10px; background: var(--discord-B); background-position: center;background-size: cover; background-repeat: no-repeat;opacity: 0.5; transition: 0s!important}
+			.boxContent-footer-SocialLink a[sc="tw"] {background-image: var(--twitter-B)}
+			.boxContent-footer-SocialLink a[sc="yt"] {background-image: var(--youtube-B)}
+			.boxContent-footer-SocialLink a[sc="settings"] {background-image: var(--settings-B)}
+			.boxContent-footer-SocialLink a:hover {opacity: 1}
+			@media all and (max-width: 767px) {
+				.boxContent-footer-Text {right: 0} 
+				.boxContent-footer-SocialLink {left: 0}
+				.boxContent-footer-SocialLink a:first-child{margin-left: 0}
+				.boxContent-footer-SocialLink a:last-child{margin-right: 0}}
+			/*box content - footer >>> responsive*/
+			@media all and (max-width: 500px) {
+				.boxContent-footer {display: block; height: 70px}
+				.boxContent-footer-Text, .boxContent-footer-SocialLink, .boxContent-footer-Text div {margin: 0 auto; width: 100%}
+				.boxContent-footer-SocialLink {position: relative; width: max-content; height: 25px}
+				.boxContent-footer-Text div { text-align: center; }
+				.boxContent-footer-Text {margin-top: 10px;}
+			}
+
+		

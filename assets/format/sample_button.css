@@ -1,0 +1,30 @@
+.button-default {
+	width: var(--X); height: var(--Y); 
+	cursor: pointer;
+	border: 5px solid black; box-shadow: 5px 5px 0px 0px black;
+	background: #FFF100;
+}
+
+.button-default * {font-family: ggSansBold, notosansThai}
+.button-default-Absolute {width: 100%; height: 100%; position: relative;}
+.button-default-Hover1, .button-default-Hover2 {background: black; width: 0; height: calc(var(--Y) / 2);  transition: width .6s cubic-bezier(.16,1,.3,1) }
+.button-default-Hover2 {position:absolute;right: 0;}
+.button-default-ObjectInside {
+	width: 100%; height: 100%; 
+	display: flex; align-items: center;position: absolute; top: 0; 
+}
+.button-default-ObjectInside-Centered {height: 100%; display: flex; align-items: center;margin: 0 auto;}
+.button-default-Images {height: 100%; aspect-ratio: 1/1; position: relative;}
+.button-default-Caption {height: 100%; display: flex; vertical-align: middle; align-items: center; }
+.button-default-IconBG {background: var(--icon-top-B);}
+.button-default-IconBG-Hovered {background: var(--icon-top-Y);}
+.button-default-IconBG, .button-default-IconBG-Hovered {
+	aspect-ratio: 1/1;  height: 100%; position: absolute; left: 0; top: 0; cursor: pointer;
+	background-size: cover; background-position: center; background-repeat: none; opacity: 1;
+}
+
+.button-default:is(.buttonBorder) {border-color: #FFF100; }
+.button-default-Hover1:is(.buttonHover) { width: 100%; height: calc(100% / 2);}
+.button-default-Hover2:is(.buttonHover) { width: 100%; height: calc(100% / 2);}
+.button-default-IconBG:is(.buttonImg) { opacity: 0;}
+.button-default-Caption:is(.buttonCaption) { color: #FFF100; }
